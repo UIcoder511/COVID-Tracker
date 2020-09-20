@@ -1,87 +1,110 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import TextField from "@material-ui/core/TextField";
-// import Autocomplete from "@material-ui/lab/Autocomplete";
+
 import { makeStyles } from "@material-ui/core/styles";
 import { Autocomplete } from "@material-ui/lab";
 
-import Config from "./Config/APIconfig";
+// import Config from "./Config/APIconfig";
 
-import axios from "axios";
+// import global from "../global.svg";
+
+// import axios from "axios";
 import { CircularProgress } from "@material-ui/core";
 
-const useStyles = makeStyles({
+import { initial } from "../App";
+
+
+export const useStyles = makeStyles(theme => ({
   root: {
-    width: "50%",
+    width: "40%",
+    [theme.breakpoints.down('sm')]: {
+
+      width: "60%"
+    },
+    [theme.breakpoints.down('xs')]: {
+
+      width: "100%"
+    }
+  },
+  img: {
+    width: '20px',
+    height: '20px',
+    objectFit: 'none',
+    marginRight: "0.5rem",
+    borderRadius: '999px'
   },
   option: {},
-});
+}));
 
-const data = {
-  query: `{
-      countriesCode {
-        Country
-      }
-  }`,
-};
+function SelectCountry({ selectedCountry, getCountry, open, allCountries }) {
+  // const [allCountries, setCountries] = useState([]);
 
-function SelectCountry() {
-  const [open, setopen] = useState(false);
-  const [countries, setCountries] = useState([]);
-  const initial = { Country: "Global" };
-  const [country, setCountry] = useState(initial);
+  // const initial = {
+  //   Country_Region: "Global",
+  //   img: global,
+  // };
+
+  //const [allCountries, setCountries] = useState([initial]);
+  //const [selectedCountry, setSelectedCountry] = useState(initial);
   const classes = useStyles();
 
-  useEffect(() => {
-    axios(Config(data))
-      .then(function (response) {
-        response.data.data.countriesCode.unshift(initial);
-        const data = response.data.data.countriesCode;
-        setCountries(data);
-        setopen(true);
-      })
-      .catch(function (error) {
-        console.log(error.message);
-      });
-  }, []);
+  // useEffect(() => { }, []);
+
+  // useEffect(() => {
+  //   console.log('called')
+  //   ;
+  // }, [selectedCountry]);
 
   return (
     <>
+      {console.log('renderSee')}
       <Autocomplete
         className={classes.root}
         // value={}
         // fullWidth
         //  className={classes.autocomp}
-        id="country-select"
+        id="selectedCountry-select"
         // style={{ width: 300 }}
-        options={countries}
-        onChange={(e, v) => setCountry(v)}
+        options={allCountries}
+        // value={}
+        onChange={(e, v) => getCountry(v)}
         // open={open}
         // inputValue="global"
-        // getOptionSelected={(o, v) => o.Country === v.Country}
+        // getOptionSelected={(o, v) => o.selectedCountry === v.selectedCountry}
         disableClearable
-        defaultValue={open ? countries[0] : { Country: "Global" }}
+        defaultValue={initial}
         loading={!open}
         classes={{
           option: classes.option,
         }}
         // autoHighlight
-        getOptionLabel={(option) => option.Country}
+        getOptionLabel={(option) => option.Country_Region}
         renderOption={(option) => (
           <>
-            {option.Country}
+            <img src={option.img} className={classes.img} onError={(e) => e.target.src = 'https://via.placeholder.com/32/000000/text=""'} />
+            {option.Country_Region}
             {/* <span>{countryToFlag(option.code)}</span> */}
-            {/* {option.country} ({option.code}) +{option.phone} */}
+            {/* {option.selectedCountry} ({option.code}) +{option.phone} */}
           </>
         )}
+
         renderInput={(params) => (
           <TextField
             {...params}
-            label="Choose a country"
+            label="Choose a Country"
             // placeholder="ss"
             variant="outlined"
-            defaultValue="India"
+
             InputProps={{
               ...params.InputProps,
+              startAdornment: (
+                <>
+                  {/* {console.log(selectedCountry)} */}
+                  <img src={selectedCountry.img} className={classes.img} onError={(e) => e.target.src = 'https://via.placeholder.com/32/000000/text=""'} />
+                  {/* {selectedCountry.img} */}
+                  {params.InputProps.startAdornment}
+                </>
+              ),
               endAdornment: (
                 <React.Fragment>
                   {!open ? (

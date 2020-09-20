@@ -1,0 +1,37 @@
+
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap');
+
+*,*::before,*::after{
+  box-sizing: border-box;
+}
+
+
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+}
+
+.leaflet-tile {
+  -webkit-filter: hue-rotate(180deg) invert(100%);
+}
+
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out,.leaflet-popup-content-wrapper{
+  background-color: #424242 !important;
+  /* background:#424242 !important; */
+  color: white !important;
+}
+
+.leaflet-popup-tip{
+  background-color: #424242 !important;
+  /* background:#424242 !important; */
+  /* color: white !important; */
+}
+
+
+
+
+.new__cases::before{
+  content: '+';
+}

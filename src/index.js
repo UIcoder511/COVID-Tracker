@@ -1,10 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
+
 // import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { createMuiTheme, CssBaseline, ThemeProvider } from "@material-ui/core";
-import SelectCountry from "./Components/SelectCountry";
+
+
 
 const theme = createMuiTheme({
   palette: {
@@ -17,7 +19,6 @@ ReactDOM.render(
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <App />
-      {/* <SelectCountry /> */}
     </ThemeProvider>
   </React.StrictMode>,
   document.getElementById("root")
