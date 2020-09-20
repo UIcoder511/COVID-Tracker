@@ -1,4 +1,5 @@
-import { Card, Grid, makeStyles } from "@material-ui/core";
+import { Card, Grid, makeStyles, Typography } from "@material-ui/core";
+import GitHubIcon from '@material-ui/icons/GitHub';
 import React, { useEffect, useReducer, useState } from "react";
 import CovidMap from "./Components/CovidMap";
 import global from "./global.svg";
@@ -117,6 +118,33 @@ const useStyles = makeStyles((theme) => ({
       padding: theme.spacing(1),
       height: "310px"
     }
+  },
+  bottom: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: '4px',
+    '& a': {
+
+      display: 'flex',
+      cursor: 'pointer',
+      '& :hover': {
+        color: theme.palette.text.disabled
+      }
+
+    }
+
+  },
+  bottomline: {
+    textAlign: 'center',
+    fontFamily: '"Josefin Sans", sans-serif',
+    fontSize: '0.9rem',
+    fontWeight: 600,
+    color: theme.palette.text.secondary
+  },
+  bottomicon: {
+    color: theme.palette.text.secondary,
+
   }
 }));
 
@@ -296,6 +324,10 @@ function App() {
           </Grid>
           <Grid item xs={12} >
             <Card className={classes.paper}> <LineGraph /> </Card>
+          </Grid>
+          <Grid item xs={12} className={classes.bottom} >
+            <Typography className={classes.bottomline}>Designed and Developed with ❤️ by Umang</Typography>
+            <a href='https://github.com/UIcoder511/COVID-Tracker' target='_blank'><GitHubIcon className={classes.bottomicon} /></a>
           </Grid>
         </Grid>
       </div>

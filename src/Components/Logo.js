@@ -12,6 +12,7 @@ const useStyles = makeStyles((theme) => ({
     logotext: {
         fontFamily: '"Josefin Sans", sans-serif',
         fontSize: '2rem',
+        fontWeight: 700,
         color: theme.palette.text.secondary
     },
     SVG: {
