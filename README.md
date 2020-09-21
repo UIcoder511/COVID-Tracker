@@ -6,10 +6,11 @@ ReactJS + hooks
 axios : for data fetching
 
 MaterialUI
-	https://material-ui.com/
+https://material-ui.com/
 
 GraphQL APIs:
 https://api-corona.azurewebsites.net/graphqlz
+
 https://covid19-graphql.herokuapp.com/
 
 Mapview :
@@ -18,5 +19,4 @@ https://react-leaflet.js.org/
 
 Graph :
 canvasJS
-
 https://canvasjs.com/docs/charts/integration/react/
