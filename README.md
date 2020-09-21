@@ -3,6 +3,7 @@ Demo : https://c0vid-tracker.web.app/
 **Technologies :**
 
 ReactJS + hooks
+
 axios : for data fetching
 
 MaterialUI
