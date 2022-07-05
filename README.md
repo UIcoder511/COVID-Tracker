@@ -1,3 +1,5 @@
+`Unfortunately the public API service which I used https://api-corona.azurewebsites.net/graphqlz is not available anymore. I will update it with different API service`
+
 Demo : https://c0vid-tracker.web.app/
 
 **Technologies :**
