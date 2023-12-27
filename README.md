@@ -1,4 +1,4 @@
-`Unfortunately the public API service which I used https://api-corona.azurewebsites.net/graphqlz is not available anymore. I will update it with different API service`
+`Unfortunately, the public API service I used https://api-corona.azurewebsites.net/graphqlz is no longer available. I will tr to update it with different the API service`
 
 Demo : https://c0vid-tracker.web.app/
 
